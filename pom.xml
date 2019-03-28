@@ -7,8 +7,23 @@
     <groupId>autotest-selenide</groupId>
     <artifactId>autotest-selenide</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>ui.tests.runners.CucumberRunner</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -58,6 +73,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>1.2.5</version>
         </dependency>
     </dependencies>
 </project>

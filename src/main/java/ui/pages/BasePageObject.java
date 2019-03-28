@@ -10,8 +10,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public abstract class BasePageObject {
 
@@ -45,18 +44,13 @@ public abstract class BasePageObject {
 
     // заполнить поле
     public void fillField(SelenideElement field, String value) {
-        field.click();
-        field.setValue(value).pressEnter();
+        field.setValue(value);
 
-    }
-
-    public void click(SelenideElement element) {
-        element.click();
     }
 
     public void click(String name) throws Exception {
         SelenideElement element = getField(name);
-        click(element);
+         element.click();
     }
 
     public void fillField(String name, String value) throws Exception {
@@ -74,7 +68,7 @@ public abstract class BasePageObject {
         List<SelenideElement> elements = getFields(name);
         for (SelenideElement element : elements) {
             if (element.getText().equalsIgnoreCase(value)) {
-                click(element);
+                element.click();
                 break;
             }
 

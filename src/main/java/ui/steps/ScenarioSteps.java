@@ -14,6 +14,8 @@ import ui.util.TestProperties;
 import java.util.List;
 import java.util.Properties;
 
+import static com.codeborne.selenide.Condition.disabled;
+
 public class ScenarioSteps {
     static String currentPageName;
 
@@ -41,12 +43,13 @@ public class ScenarioSteps {
         Assert.assertEquals(value, page.getField(name).text());
     }
 
-//    @When("элемент \"(.*)\" не активен")
-//    public void disabled(String name) throws Exception {
-//        Class example = Class.forName("ui.pages." + currentPageName);
-//        BasePageObject page = (BasePageObject) example.newInstance();
-//        Assert.assertTrue(page.getField(name).getAttribute("disabled"), true);
-//    }
+    @When("элемент \"(.*)\" не активен")
+    public void disabled(String name) throws Exception {
+        Class example = Class.forName("ui.pages." + currentPageName);
+        BasePageObject page = (BasePageObject) example.newInstance();
+        Assert.assertTrue(page.getField(name).getAttribute("disabled"), true);
+        Assert.assertTrue(String.valueOf(page.getField(name).shouldBe(disabled)), true);
+    }
 
     @When("элемент \"(.*)\" активен")
     public void notDisabled(String name) throws Exception {
