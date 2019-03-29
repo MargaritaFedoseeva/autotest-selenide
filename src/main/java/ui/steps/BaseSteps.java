@@ -14,13 +14,9 @@ public class BaseSteps {
 //                    .withRecordingMode(RECORD_ALL, new File("./target/"));
     @Before
     public void startScenario() {
-        System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C://Users/MFedoseeva/Desktop/chromedriver.exe");
         System.setProperty("selenide.browser", "Chrome");
-        Selenide.open(properties.getProperty("app.url"));
+        Selenide.open("https://hms.test.russianpost.ru/");
     }
-
-//    @After
-//    public void afterMethod() {
-//
-//    }
 }
+

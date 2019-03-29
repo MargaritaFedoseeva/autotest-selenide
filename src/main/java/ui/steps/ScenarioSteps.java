@@ -1,7 +1,6 @@
 package ui.steps;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -9,10 +8,7 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 
 import ui.pages.BasePageObject;
-import ui.util.TestProperties;
-
 import java.util.List;
-import java.util.Properties;
 
 import static com.codeborne.selenide.Condition.disabled;
 
