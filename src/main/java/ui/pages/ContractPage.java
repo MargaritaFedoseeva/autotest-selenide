@@ -1,10 +1,10 @@
 package ui.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
-import ui.annotation.FieldName;
+import org.openqa.selenium.By;
+import ui.annotation.Name;
 
-import java.util.List;
+import static com.codeborne.selenide.Selenide.$;
 
 public class ContractPage extends BasePageObject{
 
@@ -47,7 +47,8 @@ public class ContractPage extends BasePageObject{
     }
 
     @Override
-    public List<SelenideElement> getFields(String name) throws Exception {
-        return getFields(name, "ui.pages.ContractPage");
+    public ElementsCollection getCollection(String name) throws Exception {
+        return getCollection(name, "ui.pages.ContractPage");
     }
+
 }

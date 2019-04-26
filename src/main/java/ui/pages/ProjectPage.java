@@ -1,16 +1,18 @@
 package ui.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
-import ui.annotation.FieldName;
+import org.openqa.selenium.By;
+import ui.annotation.Name;
 
-import java.util.List;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class ProjectPage extends BasePageObject {
 
-    @FieldName(name = "Создать проект")
-    @FindBy(id = "addProjectButton")
-    public SelenideElement addProjectButton;
+    @Name(name = "Создать проект")
+    public SelenideElement addProjectButton = $(By.id("addProjectButton"));
 
     @Override
     public SelenideElement getField(String name) throws Exception {
@@ -18,7 +20,7 @@ public class ProjectPage extends BasePageObject {
     }
 
     @Override
-    public List<SelenideElement> getFields(String name) throws Exception {
-        return getFields(name, "ui.pages.ProjectPage");
+    public ElementsCollection getCollection(String name) throws Exception {
+        return getCollection(name, "ui.pages.ProjectPage");
     }
 }

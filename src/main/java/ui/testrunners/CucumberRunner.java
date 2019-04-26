@@ -6,10 +6,10 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"classpath:contracts"}, glue = {"ui.steps"}
-//        plugin = {"pretty",
-//                "json:terget/report.json",
-//              "junit:terget/report.xml"}
+@CucumberOptions(features = {"classpath:order_form"}, glue = {"ui.steps"},
+        plugin = {"pretty",
+                "json:terget/report.json",
+              "junit:terget/report.xml"}
               )
 public class CucumberRunner {
     public static void main(String[] args) throws Exception {
