@@ -3,14 +3,12 @@ package ui.steps;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import cucumber.api.DataTable;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
-
 import ui.pages.BasePageObject;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.disabled;
+import static org.junit.Assert.*;
 
 public class ScenarioSteps {
     static String currentPageName;
@@ -36,22 +34,22 @@ public class ScenarioSteps {
     public void checkField(String name, String value) throws Exception {
         Class example = Class.forName("ui.pages." + currentPageName);
         BasePageObject page = (BasePageObject) example.newInstance();
-        Assert.assertEquals(value, page.getField(name).text());
+        assertEquals(value, page.getField(name).text());
     }
 
     @When("элемент \"(.*)\" не активен")
     public void disabled(String name) throws Exception {
         Class example = Class.forName("ui.pages." + currentPageName);
         BasePageObject page = (BasePageObject) example.newInstance();
-        Assert.assertTrue(page.getField(name).getAttribute("disabled"), true);
-        Assert.assertTrue(String.valueOf(page.getField(name).shouldBe(disabled)), true);
+        assertTrue(page.getField(name).getAttribute("disabled"), true);
+        assertTrue(String.valueOf(page.getField(name).shouldBe(disabled)), true);
     }
 
     @When("элемент \"(.*)\" активен")
     public void notDisabled(String name) throws Exception {
         Class example = Class.forName("ui.pages." + currentPageName);
         BasePageObject page = (BasePageObject) example.newInstance();
-        Assert.assertFalse(page.getField(name).getAttribute("disabled"), false);
+        assertFalse(page.getField(name).getAttribute("disabled"), false);
     }
 
 //    @When("елемент \"(.*)\" доступен")

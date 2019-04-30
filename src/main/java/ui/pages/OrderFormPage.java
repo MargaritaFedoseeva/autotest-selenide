@@ -18,6 +18,19 @@ public class OrderFormPage extends BasePageObject{
     @Name(name="Сохранить")
     public SelenideElement saveOrderForm = $("#b_save");
 
+    // раздел Бланк заказа
+    @Name(name="Заголовок раздела Бланк заказа")
+    public SelenideElement titleOrderForm = $("order-form-section > div > div.order-section-header");
+
+    @Name(name = "Значение из списока продуктов")
+    public ElementsCollection productList = $$("mat-option> span");
+
+    @Name(name = "Продукт")
+    public SelenideElement product = $("#mat-select-0 > div > div.mat-select-value > span");
+
+//    @Name(name="Номер бланка заказа")
+//    public SelenideElement  = $("#");
+
     // блок выбора Договора
     @Name(name="Заголовок блока Договор")
     public SelenideElement contractBlockTitle = $("#s_contract");
